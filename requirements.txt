@@ -1,0 +1,11 @@
+import os
+import telebot
+
+BOT_TOKEN = os.environ.get("BOT_TOKEN")
+bot = telebot.TeleBot(BOT_TOKEN)
+
+@bot.message_handler(commands=['start'])
+def handle_start(message):
+    bot.send_message(message.chat.id, "Привет! Я Дмитро 🤖")
+
+bot.polling()
